@@ -15,7 +15,7 @@ class CommandManager:
         if hasattr(command, "category"):
             category = command.category
             
-        commandList = GetCommandListForCategory(category)
+        commandList = self.getCommandListForCategory(category)
         
         commandList.addCommand(command.command, command())
         
@@ -47,12 +47,15 @@ class CommandManager:
         
 def SetScriptName(scriptName):
     """ Registers a Command with the Command Manager """
+    global __command_manager__
     __command_manager__ = CommandManager(scriptName)
 
 def RegisterCommand(command, category=None):
     """ Registers a Command with the Command Manager """
+    global __command_manager__
     __command_manager__.register(command, category=category)
     
 def Run(arguments):
     """ Run the given Command """
+    global __command_manager__
     __command_manager__.run(arguments)
