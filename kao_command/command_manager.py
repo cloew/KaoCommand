@@ -30,7 +30,7 @@ class CommandManager:
         """ Get the Tab Completion for the arguments """
         results = self.rootCommandList.getTabCompletion(arguments)
         results.sort()
-        print " ".join(results)
+        print(" ".join(results))
         
     def getCommandListForCategory(self, category):
         """ Return the command list for the given category """

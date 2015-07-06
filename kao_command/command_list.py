@@ -63,11 +63,11 @@ class CommandList:
         
     def help(self):
         """ Print the usage for the Command List """
-        print "Available {0} Categories".format(self.name)
+        print("Available {0} Categories".format(self.name))
         commandList = self.commands.keys()
         commandList.sort()
         for category in commandList:
-            print "    {0:<15}{1}".format(category+":", self.commands[category].description)
+            print("    {0:<15}{1}".format(category+":", self.commands[category].description))
             
             
     def __contains__(self, category):
