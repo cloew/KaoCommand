@@ -1,1 +1,1 @@
-from command_manager import SetScriptName, RegisterCommand, Run
+from .command_manager import SetScriptName, RegisterCommand, Run
