@@ -23,4 +23,4 @@ class Commands:
             else:
                 commands[arg] = self.buildCommandList(self, newArgs, value)
                 
-        return CommandList(" ".join(args), commands)
+        return CommandList(commands, argString=" ".join(args))
