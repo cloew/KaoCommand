@@ -14,5 +14,10 @@ class CmdConfig:
         command = self.namespacedClass.instantiate()
         parser = ArgumentParser(prog="{0} {1}".format(scriptName, self.argString))
         command.addArguments(parser)
-        arguments = parser.parse_args(argsForNextCommand)
+        arguments = parser.parse_args(args)
         command.run(arguments)
+        
+    @property
+    def description(self):
+        """ Return the underlying Command's description """
+        return self.namespacedClass.cls.description

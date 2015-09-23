@@ -6,8 +6,7 @@ class Driver:
     def __init__(self, scriptName, commands):
         """ Initialize the Driver with the script name and the commands """
         self.scriptName = scriptName
-        self.rootCommandList = CommandList(scriptName)
-        self.rootCommandList.register(commands)
+        self.rootCommandList = commands.build()
         
     def run(self, args):
         """ Run the command based on the given arguments """

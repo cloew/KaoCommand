@@ -5,7 +5,7 @@ import argparse
 class CommandList:
     """ Represents a Command that allows access to other Commands """
     
-    def __init__(self, commands, argString=None):
+    def __init__(self, commands, argString=''):
         """ Initialize the Command List """
         self.commands = commands
         self.argString = argString
@@ -28,10 +28,9 @@ class CommandList:
     @property
     def name(self):
         """ Return the name of the Command List """
-        name = self.argString.split()[-1] if self.argString else None
-        if name is not None:
-            name = name.capitalize()
-        return name
+        args = self.argString.split()
+        name = args[-1] if len(args) > 0 else ''
+        return name.capitalize()
         
     @property
     def description(self):
@@ -41,7 +40,7 @@ class CommandList:
     @property
     def category(self):
         """ Return the Category name for this List """
-        if self.name:
+        if len(self.name) > 0:
             return "{0} Commands".format(self.name)
         else:
             return "Commands"

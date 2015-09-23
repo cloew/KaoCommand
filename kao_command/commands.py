@@ -9,11 +9,11 @@ class Commands:
         self.rootPackage = rootPackage
         self.commandTree = commandTree
         
-    def buildCommandLists(self):
-        """ Build the command lists """
+    def build(self):
+        """ Build the root Command List """
         return self.buildCommandList([], self.commandTree)
         
-    def buildCommandList(self, args, commandTree)
+    def buildCommandList(self, args, commandTree):
         """ Return the Command List for the Command Tree """
         commands = {}
         for arg, value in commandTree.items():
