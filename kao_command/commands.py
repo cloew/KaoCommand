@@ -21,6 +21,6 @@ class Commands:
             if type(value) == str:
                 commands[arg] = CmdConfig(" ".join(newArgs), "{0}.{1}".format(self.rootPackage, value))
             else:
-                commands[arg] = self.buildCommandList(self, newArgs, value)
+                commands[arg] = self.buildCommandList(newArgs, value)
                 
         return CommandList(commands, argString=" ".join(args))
