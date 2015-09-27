@@ -9,4 +9,4 @@ class ArgparseHelper:
         
     def addArg(self, parser):
         """ Add Arg to the parser """
-        parser.add_argument(self.name, **self.kwargs)
+        parser.add_argument(*self.args, **self.kwargs)
