@@ -13,9 +13,13 @@ class CmdConfig:
         """ Run the Command Config """
         command = self.namespacedClass.instantiate()
         parser = ArgumentParser(prog="{0} {1}".format(scriptName, self.argString))
-        command.addArguments(parser)
-        arguments = parser.parse_args(args)
-        command.run(arguments)
+        
+        for arg in command.args:
+            arg.addArguments(parser)
+        argResults = parser.parse_args(args)
+        
+        kwargs = {arg.name: arg.getValue(argResults) for arg in command.args}
+        command.run(**kwargs)
         
     @property
     def description(self):
