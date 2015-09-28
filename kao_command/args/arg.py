@@ -16,4 +16,4 @@ class Arg:
         
     def getValue(self, args):
         """ Return the value from the args """
-        return self.provider(name, args)
+        return self.provider(self.name, args)
