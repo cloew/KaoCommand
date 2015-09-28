@@ -14,6 +14,10 @@ class Arg:
         """ Add argument to the parser """
         self.argparseHelper.addArg(parser)
         
+    def getPair(self, args):
+        """ Return the Keyword pair """
+        return self.name, self.getValue(args)
+        
     def getValue(self, args):
         """ Return the value from the args """
         return self.provider(self.name, args)

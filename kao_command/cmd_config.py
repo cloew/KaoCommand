@@ -18,7 +18,7 @@ class CmdConfig:
             arg.addArguments(parser)
         argResults = parser.parse_args(args)
         
-        kwargs = {arg.name: arg.getValue(argResults) for arg in command.args}
+        kwargs = dict([arg.getPair(argResults) for arg in command.args])
         command.run(**kwargs)
         
     @property
