@@ -15,6 +15,9 @@ class CommandList:
         if len(args) > 0 and args[0] in self:
             command = self.commands[args[0]]
             command.run(scriptName, args[1:])
+        elif None in self.commands:
+            command = self.commands[None]
+            command.run(scriptName, args)
         else:
             self.help()
         

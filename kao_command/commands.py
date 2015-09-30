@@ -17,10 +17,17 @@ class Commands:
         """ Return the Command List for the Command Tree """
         commands = {}
         for arg, value in commandTree.items():
-            newArgs = args + [arg]
-            if type(value) == str:
-                commands[arg] = CmdConfig(" ".join(newArgs), "{0}.{1}".format(self.rootPackage, value))
+            if arg is None:
+                commands[arg] = self.buildCmdConfig(args, value)
             else:
-                commands[arg] = self.buildCommandList(newArgs, value)
+                newArgs = args + [arg]
+                if type(value) == str:
+                    commands[arg] = self.buildCmdConfig(newArgs, value)
+                else:
+                    commands[arg] = self.buildCommandList(newArgs, value)
                 
         return CommandList(commands, argString=" ".join(args))
+        
+    def buildCmdConfig(self, args, value):
+        """ Return the Cmd Config """
+        return CmdConfig(" ".join(args), "{0}.{1}".format(self.rootPackage, value))
