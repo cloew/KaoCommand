@@ -1,7 +1,7 @@
 from distutils.core import setup
 
 setup(name='kao_command',
-      version='0.3.0',
+      version='0.3.1',
       #description='Kao Tessur Command Framework',
       author='Chris Loew',
       author_email='cloew123@gmail.com',
