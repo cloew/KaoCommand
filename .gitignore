@@ -55,3 +55,6 @@ target/
 
 # PBF
 .pbf-properties
+
+# Toggl
+.toggl-settings
