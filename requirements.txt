@@ -1,0 +1,5 @@
+git+git://github.com/cloew/KaoDecorators
+git+git://github.com/cloew/KaoModules
+argparse==1.4.0
+
+-e .
